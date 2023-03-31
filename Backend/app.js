@@ -41,9 +41,9 @@ app.put("/:uid/GoldPrice/:price",async(req,res,next)=>{
             {_id: req.params.uid},{ $set: {"runningBalance.goldPrice":price}}
         );
         res.status(200).json({
-            "Net Funds Added":growth,
+            "Net change in price":change,
             "Current Fund":user.runningBalance.wallet,
-            "Net growth/loss in gold":change,
+            "Net growth/loss":growth,
             "gain/loss percent":perc
         })
     } catch (error) {
